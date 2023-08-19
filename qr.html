@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <script src="script.js"></script>
+
+  <div class="maindiv">
+    <h1>QR CODE GENERATOR</h1>
+
+    <textarea name="" id="qrtext" placeholder="Enter Your Text/Link Here" cols="30" rows="10"></textarea>
+    <select name="Select" id="size">
+      <option value="100">100*100</option>
+      <option value="150">150*150</option>
+      <option value="200">200*200</option>
+      <option value="250" selected>250*250</option>
+      <option value="300">300*300</option>
+    </select>
+    <input id="btn" type="submit" value="Genarate QR Code" onclick="genQr()">
+    <img src="" id="img">
+    <p>Developed By Haseeb Khan (Creatiply)</p>
+
+
+  </div>
+
+</body>
+
+</html>
+<style>
+     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(5, 11, 45);
+    color: rgb(248, 240, 255);
+    font-family: inter;
+}
+
+
+.maindiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 30rem;
+    gap: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+textarea {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+
+}
+
+select {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+
+}
+
+#btn {
+    padding: 1rem;
+    background-color: rgb(0, 153, 117);
+    border: none;
+    border-radius: 0.5rem;
+    width: 100%;
+
+}
+
+#btn:hover {
+    background-color: rgba(4, 115, 89, 0.8);
+    cursor: pointer;
+}
+
+.socials {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+li{
+    width: 3rem;
+    height: 3rem;
+}
+
+.imgs {
+    width: 3rem;
+    height: 3rem;
+    padding: 10px;
+}
+
+.imgs:hover{
+    background-color: rgb(13, 28, 112);
+    border-radius: 10px;
+}
+
+@media (max-width: 706px) {
+    .maindiv {
+
+        width: 80vw;
+
+    }
+}
+
+@media (max-width: 440px) {
+    .maindiv {
+
+        width: 95vw;
+
+    }
+}
+</style>
+<script>
+    function genQr() {
+    var gApi="https://chart.googleapis.com/chart?cht=qr&chs=";
+    var myImg=document.getElementById("img");
+    var mySize=document.getElementById("size").value;
+    var myText=document.getElementById("qrtext").value;
+
+    if (myText!="" && mySize=="100") {
+        myImg.src=gApi+"100x100"+"&chl="+myText;
+    }
+
+    else if (myText!="" && mySize=="150") {
+        myImg.src=gApi+"150x150"+"&chl="+myText;
+    }
+
+    else if (myText!="" && mySize=="200") {
+        myImg.src=gApi+"200x200"+"&chl="+myText;
+    }
+
+    else if (myText!="" && mySize=="250") {
+        myImg.src=gApi+"250x250"+"&chl="+myText;
+    }
+
+    else if (myText!="" && mySize=="300") {
+        myImg.src=gApi+"300x300"+"&chl="+myText;
+    }
+
+    else {
+        alert("Enter Text!");
+    }
+
+}
+</script>
